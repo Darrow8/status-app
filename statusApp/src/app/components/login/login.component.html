@@ -1,0 +1,36 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      Login
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form class="login" [formGroup]="userForm" (ngSubmit)="submit()">
+      <ion-list>
+        <ion-label>
+          Username
+        </ion-label>
+        <ion-input formControlName="username"placeholder="Username"></ion-input>
+        <div *ngFor="let error of errorMessages.username">
+          <ng-container *ngIf="username.hasError(error.type) && (username.dirty || username.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+          
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input formControlName="password"placeholder="Password"></ion-input>
+        <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <ion-button type="submit">
+          Login
+        </ion-button>
+      </ion-list>
+    </form>
+  </ion-card-content>
+
+</ion-card>
