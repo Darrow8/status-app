@@ -1,7 +1,0 @@
-{
-  "name": "statusApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
