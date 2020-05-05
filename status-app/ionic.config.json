@@ -1,5 +1,7 @@
 {
   "name": "status-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

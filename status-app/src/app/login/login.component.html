@@ -1,11 +1,28 @@
-<form [formGroup]="todo" (ngSubmit)="logForm()">
+<form [formGroup]="form" (ngSubmit)="logForm()">
   <ion-item>
-    <ion-label>Todo</ion-label>
-    <ion-input type="text" formControlName="title"></ion-input>
+    <ion-label>Name</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Description</ion-label>
-    <ion-textarea formControlName="description"></ion-textarea>
+    <ion-label>Phone Number</ion-label>
+    <ion-textarea formControlName="number"></ion-textarea>
   </ion-item>
-  <button ion-button type="submit" (click)="logForm()">Submit</button>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-textarea formControlName="password"></ion-textarea>
+  </ion-item>
+  <button ion-button type="submit" (tap)="logForm()">Submit</button>
+  <!-- reCAPTCHA -->
+  <!-- <ion-content padding>
+    <div id="recaptcha-container"></div>
+  
+    <ion-item>
+      <ion-label stacked>Phone Number</ion-label>
+      <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
+    </ion-item>
+  
+    <button ion-button id="sign-in-button" (click)="signIn(phoneNumber)">
+      Sign In
+    </button>
+  </ion-content> -->
 </form>

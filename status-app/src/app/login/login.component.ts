@@ -1,6 +1,6 @@
+import { User } from './../User';
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-
 
 @Component({
   selector: 'app-login',
@@ -8,16 +8,26 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent{
-  public todo : FormGroup;
+  public form : FormGroup;
+  public user : User
+  // public recaptchaVerifier:firebase.auth.RecaptchaVerifier;
 
-  constructor( private formBuilder: FormBuilder ) {
-    this.todo = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: [''],
+
+  constructor( private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.min(3)]],
+      number: [''],
+      password: [''],
     });
   }
+
+
   logForm(){
-    console.log(this.todo.value)
+
+    let val = this.form.value
+    this.user = new User(val["name"],"1",val["number"],val["password"],[],"",[],null)
+    this.user.returnInfo()
+
   }
 
 }

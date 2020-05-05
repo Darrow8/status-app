@@ -4,29 +4,31 @@ export class User {
     /**
      * @param name name of user
      * @param nickname the nickname of the user
-     * @param id the id of the user
-     * @param phonenum the phone number of the user
+     * @param uid the uid of the user
+     * @param phoneNum the phone number of the user
      * @param password the password of the user
      * @param friends the friends of the user
      * @param currentPosts the current posts the user has open
      * @param status the user's current status
      */
 
-    name: string;
-    nickname: string;
-    id: string; 
-    phonenum: string;
-    password: string;
-    friends: [User];
-    currentPosts: [Post];
-    status: Post;
-    constructor(name: string, id: string, phonenum: string, 
-        password: string,friends: [User],nickname: string,
-        currentPosts: [Post],status: Post) {
-        this.name = name,
+    public name: string;
+    public nickname?: string;
+    public uid: string; 
+    public phoneNum: number;
+    public password: string;
+    public friends?: [User?];
+    public currentPosts?: [Post?];
+    public status?: Post;
+    constructor(name: string, 
+        uid: string, phoneNum: number, 
+        password: string,friends: [User?],nickname: string,
+        currentPosts: [Post?],status: Post
+        ) {
+        this.name = name
         this.nickname = nickname
-        this.id = id,
-        this.phonenum = phonenum,
+        this.uid = uid,
+        this.phoneNum = phoneNum,
         this.password = password,
         this.friends = friends,
         this.currentPosts = currentPosts,
@@ -36,10 +38,10 @@ export class User {
     //* For debugging lots of stuff
     returnInfo(){
         console.log("---------------------")
-        console.log("User Log of " + this.id)
+        console.log("User Log of " + this.uid)
         console.log("User's name " + this.name)
-        console.log("User's id " + this.id)
-        console.log("User's phone number " + this.phonenum)
+        console.log("User's uid " + this.uid)
+        console.log("User's phone number " + this.phoneNum)
         console.log("User's Friends are: " + this.friends)
         console.log("---------------------")
 
