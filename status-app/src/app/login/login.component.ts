@@ -23,11 +23,9 @@ export class LoginComponent{
 
 
   logForm(){
-
     let val = this.form.value
     this.user = new User(val["name"],"1",val["number"],val["password"],[],"",[],null)
     this.user.returnInfo()
-
   }
 
 }

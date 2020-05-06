@@ -1,0 +1,7 @@
+<form [formGroup]="confirm" (ngSubmit)="submitting()">
+  <ion-item>
+    <ion-label>Enter the code sent to your phone</ion-label>
+    <ion-input type="text" formControlName="code"></ion-input>
+  </ion-item>
+  <button ion-button type="submit" (click)="submitting()">Submit</button>
+</form>

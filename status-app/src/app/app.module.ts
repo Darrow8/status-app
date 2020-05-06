@@ -1,3 +1,5 @@
+import { RegisterModalComponent } from './register-modal/register-modal.component';
+import { RegisterComponent } from './register/register.component';
 import { Post } from './Post';
 import { User } from './User';
 import { LoginComponent } from './login/login.component';
@@ -5,10 +7,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 import { environment } from '../environments/environment';
 
@@ -21,8 +22,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  entryComponents: [],
+  declarations: [AppComponent, LoginComponent, RegisterComponent,RegisterModalComponent],
+  entryComponents: [RegisterModalComponent],
   imports: [
     BrowserModule, IonicModule.forRoot(), 
     AppRoutingModule,
@@ -30,8 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule,
-    AngularFireStorageModule
+    // AngularFireDatabaseModule,
+    // AngularFireStorageModule
   ],
   providers: [
     StatusBar,

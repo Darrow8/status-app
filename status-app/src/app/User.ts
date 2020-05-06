@@ -15,13 +15,13 @@ export class User {
     public name: string;
     public nickname?: string;
     public uid: string; 
-    public phoneNum: number;
+    public phoneNum: string;
     public password: string;
     public friends?: [User?];
     public currentPosts?: [Post?];
     public status?: Post;
     constructor(name: string, 
-        uid: string, phoneNum: number, 
+        uid: string, phoneNum: string, 
         password: string,friends: [User?],nickname: string,
         currentPosts: [Post?],status: Post
         ) {

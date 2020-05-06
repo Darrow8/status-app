@@ -1,3 +1,4 @@
+<!-- <p>Register!</p> -->
 <form [formGroup]="form" (ngSubmit)="logForm()">
   <ion-item>
     <ion-label>Name</ion-label>
@@ -5,11 +6,19 @@
   </ion-item>
   <ion-item>
     <ion-label>Phone Number</ion-label>
-    <ion-textarea formControlName="number"></ion-textarea>
+    <ion-input type="number"formControlName="number"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Password</ion-label>
     <ion-textarea formControlName="password"></ion-textarea>
   </ion-item>
-  <button ion-button type="submit" (tap)="logForm()">Submit</button>
+  <button ion-button type="submit" (tap)="createUser()">Submit</button>
 </form>
+
+<!-- <form ></form> -->
+<div id="recaptcha">
+  <!-- <p>recaptcha stuff</p> -->
+</div>
+
+
+
