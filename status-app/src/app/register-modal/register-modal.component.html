@@ -1,7 +1,12 @@
 <form [formGroup]="confirm" (ngSubmit)="submitting()">
+  <ion-title>Confirmation</ion-title>
   <ion-item>
     <ion-label>Enter the code sent to your phone</ion-label>
     <ion-input type="text" formControlName="code"></ion-input>
   </ion-item>
-  <button ion-button type="submit" (click)="submitting()">Submit</button>
+  <button ion-button type="submit" (tap)="submitting()">Submit</button>
+
+  <div id="recaptcha">
+    
+  </div>
 </form>

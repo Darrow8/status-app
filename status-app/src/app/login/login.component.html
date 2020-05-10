@@ -1,15 +1,18 @@
-<form [formGroup]="form" (ngSubmit)="logForm()">
-  <ion-item>
-    <ion-label>Name</ion-label>
-    <ion-input type="text" formControlName="name"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Phone Number</ion-label>
-    <ion-textarea formControlName="number"></ion-textarea>
-  </ion-item>
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-textarea formControlName="password"></ion-textarea>
-  </ion-item>
-  <button ion-button type="submit" (tap)="logForm()">Submit</button>
-</form>
+  <ion-content>
+    <ion-button [routerLink]="['']">Back</ion-button>
+  <form [formGroup]="form" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-textarea formControlName="number"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-textarea formControlName="password"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" (tap)="logForm()">Submit</button>
+  </form>
+</ion-content>
