@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rightnow-effbf": {
+      "hosting": {
+        "app": [
+          "rightnow-effbf"
+        ]
+      }
+    }
+  }
+}

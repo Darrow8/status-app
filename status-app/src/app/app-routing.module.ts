@@ -1,3 +1,4 @@
+import { LandingComponent } from './landing/landing.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   // { path: '',   redirectTo: 'tabs', pathMatch: 'full'},
   {
-    path: '',
+    path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -14,7 +15,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'register',
+    path: '',
+    component: LandingComponent
+  },
+  {
+    path: 'signup',
     component: RegisterComponent
   }
 ];

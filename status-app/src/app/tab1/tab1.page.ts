@@ -1,5 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { IonInfiniteScroll} from '@ionic/angular'
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-tab1',
@@ -7,12 +8,13 @@ import { IonInfiniteScroll} from '@ionic/angular'
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  // @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  public items = [];
+  public posts = [];
 
   constructor() {
     this.addMore()
+    // console.log(afs.collection('items').valueChanges())
   }
 
   loadData(event) {
@@ -24,9 +26,11 @@ export class Tab1Page {
   }
   addMore(){
     for (let i = 0; i < 10; i++) {
-    this.items.push(i)      
+    this.posts.push(i)      
     }
   }
-
+  getFriendPosts(){
+    // let friends = 
+  }
 
   }

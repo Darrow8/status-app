@@ -1,0 +1,36 @@
+//thanks to: https://css-tricks.com/snippets/sass/mixin-offset-positioning/
+/// Shorthand mixin for offset positioning
+/// @param {String} $position - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @param {Length} $left [null] - Left offset
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+
+// Thanks to https://stackoverflow.com/questions/32005686/get-device-size-in-sass
+  @function get-vw($target) { 
+    $vw-context: (1000*.01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+  }
+  @function get-vh($target) { 
+    $vh-context: (1000*.01) * 1px;
+    @return ($target/$vh-context) * 1vw;
+  }
+
+.button{
+    position: absolute;
+    bottom: get-vh(0px);
+    height: get-vh(120px);
+    width: 100%;
+}
+#signup{
+    position: absolute;
+    bottom: get-vh(120px)
+
+}

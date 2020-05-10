@@ -1,3 +1,4 @@
+import { LandingComponent } from './landing/landing.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 import { RegisterComponent } from './register/register.component';
 import { Post } from './Post';
@@ -9,6 +10,7 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 
 import { environment } from '../environments/environment';
@@ -22,17 +24,19 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent,RegisterModalComponent],
+  declarations: [AppComponent, LoginComponent, 
+    RegisterComponent,RegisterModalComponent,
+    LandingComponent],
   entryComponents: [RegisterModalComponent],
   imports: [
     BrowserModule, IonicModule.forRoot(), 
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    // AngularFirestore,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    // AngularFireDatabaseModule,
-    // AngularFireStorageModule
+   // AngularFirestoreDocument
   ],
   providers: [
     StatusBar,
