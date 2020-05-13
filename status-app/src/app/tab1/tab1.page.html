@@ -17,7 +17,7 @@
   <ion-list>
     <ion-item *ngFor = "let post of fms.currentPosts">
     
-      <app-feed-cell [value]="post"></app-feed-cell>
+      <app-feed-cell [post]="post"></app-feed-cell>
 
     </ion-item>
   </ion-list>

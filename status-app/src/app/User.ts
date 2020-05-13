@@ -1,5 +1,25 @@
 import { Post } from './Post';
 //*Class for User
+
+export interface simpleUserObj{
+    name: string;
+    nickname?: string;
+    uid: string; 
+}
+
+export interface complexUserObj{
+    name: string;
+    nickname?: string;
+    uid: string; 
+    phoneNum: string;
+    password: string;
+    friends: [User];
+    currentPosts: [Post];
+    status: Post;
+}
+
+
+
 export class User {
     /**
      * @param name name of user
@@ -13,26 +33,24 @@ export class User {
      */
 
     public name: string;
-    public nickname?: string;
+    public nickname: string;
     public uid: string; 
-    public phoneNum: string;
-    public password: string;
-    public friends?: [User?];
-    public currentPosts?: [Post?];
+    public phoneNum?: string;
+    public password?: string;
+    public friends?: [User];
+    public currentPosts?: [Post];
     public status?: Post;
-    constructor(name: string, 
-        uid: string, phoneNum: string, 
-        password: string,friends: [User?],nickname: string,
-        currentPosts: [Post?],status: Post
-        ) {
-        this.name = name
-        this.nickname = nickname
-        this.uid = uid,
-        this.phoneNum = phoneNum,
-        this.password = password,
-        this.friends = friends,
-        this.currentPosts = currentPosts,
-        this.status = status
+
+    public constructor(user:simpleUserObj);
+    public constructor(user:complexUserObj) {
+        this.name = user.name
+        this.nickname = user.nickname
+        this.uid = user.uid,
+        this.phoneNum = user.phoneNum,
+        this.password = user.password,
+        this.friends = user.friends,
+        this.currentPosts = user.currentPosts,
+        this.status = user.status
 
     }
     //* For debugging lots of stuff
@@ -55,3 +73,5 @@ export class User {
     }
 
 }
+
+

@@ -1,3 +1,5 @@
+import { User, simpleUserObj } from './../User';
+import { Post, simplePostInterface, PostType } from './../Post';
 import { Tab1Page } from './../tab1/tab1.page';
 import { FeedCellComponent } from './../tab1/feed-cell/feed-cell.component';
 import {ComponentFactoryResolver,Injectable,Inject,ReflectiveInjector} from '@angular/core'
@@ -8,21 +10,33 @@ import {ComponentFactoryResolver,Injectable,Inject,ReflectiveInjector} from '@an
 })
 export class FeedManagerService {
 //* global currentPosts
-  currentPosts: Array<number> = []
+  currentPosts: Array<Post> = []
   constructor() { }
 
 
   generateFeed(){
-    // for (let i = this.currentPosts.length; i < this.currentPosts.length+ 10; i++) {
-    //   this.currentPosts.push(i)  
-    // }  
     let num = this.currentPosts.length + 10
     for (let i = Number(this.currentPosts.length); i < num; i++) {
-      this.currentPosts.push(i)  
-      
+      let userInterface: simpleUserObj = {
+        name: "Kanye West",
+        nickname: "ye",
+        uid: "1",
+      }
+      let kanye: User = new User(userInterface)
+
+      let postInterface: simplePostInterface = {
+        title: "Mark Zuckerberg Invest 1 billion dollars into Kanye West Ideas",
+        id: "12345",
+        user: kanye,
+        type: PostType.status
+      }
+      let post: Post = new Post(postInterface)
+
+      this.currentPosts.push(post)
+
     }
-    // this.currentPosts.push(10)  
   }
+
   updateFeed(i: number){
     return this.currentPosts[i]
   }

@@ -1,3 +1,4 @@
+import { User } from './../../User';
 import { FeedManagerService } from './../../services/feed-manager.service';
 import { Tab1Page } from './../tab1.page';
 import { Post } from './../../Post';
@@ -12,25 +13,27 @@ import { Component, Input, OnInit,
   styleUrls: ['./feed-cell.component.scss'],
 })
 export class FeedCellComponent implements OnInit {
-  // public posts = []
-  num: number
-  @Input() value: number;
+  @Input() post; //*placeholder
+  title: string;
+  poster: User;
 
   constructor(public fms: FeedManagerService) {
-    this.num = fms.updateFeed(this.value)
+    // this.post = fms.updateFeed(this.value)
   }
 
   ngOnInit() {
-    // this.value = num;
-    // console.log(this.posts)
-    console.log(this.num)
-    console.log(this.value)
-    this.setNum()
+    // console.log(this.post)
+    console.log(this.post)
+    // this.setNum()
+    this.title = this.post.title
+    this.poster = this.post.user
+    console.log(this.poster.nickname)
+    console.log(this.post.user.nickname)
 
   }
-  setNum(){
-    this.num = this.fms.updateFeed(this.value)
-  }
+  // setNum(){
+  //   this.post = this.fms.updateFeed(this.value)
+  // }
 
 
 

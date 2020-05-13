@@ -1,33 +1,49 @@
 import { User } from './User';
 import { Timestamp } from 'rxjs';
 //* Class For Any Type of Post
+
+
+export interface simplePostInterface{
+    title: string;
+    id: string;
+    user: User;
+    type: PostType;
+}
+export interface complexPostInterface{
+    title: string;
+    id: string;
+    user: User;
+    timebomb: Date;
+    type: PostType;
+}
+
 export class Post {
     /**
-     * @param name name of user
+     * @param title title of post
      * @param user the user that created this post
      * @param id the id of the user
      * @param timebomb the timer that will delete this post
      * @param type the type of post this is
      */
-    name: string;
-    id: string;
-    user: User;
-    timebomb: Date;
-    type: PostType;
+    public title: string;
+    public id: string;
+    public user: User;
+    public timebomb: Date;
+    public type: PostType;
 
-    constructor(name: string, id: string, user: User, 
-        timebomb: Date, type: PostType) {
-        this.name = name,
-        this.id = id,
-        this.user = user,
-        this.timebomb = timebomb,
-        this.type = type
+    constructor(post: simplePostInterface);
+    constructor(post: complexPostInterface) {
+        this.title = post.title,
+        this.id = post.id,
+        this.user = post.user,
+        this.timebomb = post.timebomb,
+        this.type = post.type
     }
     //* For debugging lots of stuff
     returnInfo(){
         console.log("---------------------")
         console.log("Post Log of " + this.id)
-        console.log("Post's name " + this.name)
+        console.log("Post's title " + this.title)
         console.log("Post's id " + this.id)
         console.log("Post's user " + this.user)
         console.log("Post's timebomb date: " + this.timebomb)
@@ -41,9 +57,9 @@ export class Post {
     
 }
 
-enum PostType{
-    status, //* this is a status post
-    audio, //* this is an audio post
-    text, //* this is a text post
-    spotify, //* this is a spofity post
+export enum PostType{
+    status = "status",//* this is a status post
+    audio = "audio", //* this is an audio post
+    text = "text", //* this is a text post
+    spotify = "spotify", //* this is a spofity post
 }
