@@ -31,7 +31,7 @@ export class FeedManagerService {
         type: PostType.status
       }
       let post: Post = new Post(postInterface)
-
+      
       this.currentPosts.push(post)
 
     }

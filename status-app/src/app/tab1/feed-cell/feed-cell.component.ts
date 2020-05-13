@@ -23,12 +23,12 @@ export class FeedCellComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.post)
-    console.log(this.post)
+    // console.log(this.post)
     // this.setNum()
     this.title = this.post.title
     this.poster = this.post.user
-    console.log(this.poster.nickname)
-    console.log(this.post.user.nickname)
+    // console.log(this.poster.nickname)
+    // console.log(this.post.user.nickname)
 
   }
   // setNum(){
