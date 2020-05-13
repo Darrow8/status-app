@@ -9,6 +9,8 @@ export class LandingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    //TODO Check for already logged in
+  }
 
 }

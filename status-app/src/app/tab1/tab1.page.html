@@ -15,8 +15,13 @@
 
 
   <ion-list>
-    <ion-item *ngFor = "let post of posts">{{post}}</ion-item>
+    <ion-item *ngFor = "let post of fms.currentPosts">
+    
+      <app-feed-cell [value]="post"></app-feed-cell>
+
+    </ion-item>
   </ion-list>
+
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"

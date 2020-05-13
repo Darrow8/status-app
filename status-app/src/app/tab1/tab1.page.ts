@@ -1,5 +1,9 @@
-import { Component,ViewChild } from '@angular/core';
+import { FeedManagerService } from './../services/feed-manager.service';
+import { Component, Output, ViewChild, Directive, ViewContainerRef } from '@angular/core';
+
 import { IonInfiniteScroll} from '@ionic/angular'
+import { FormStyle } from '@angular/common';
+// import { ComponentFactoryResolver}
 // import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -8,26 +12,26 @@ import { IonInfiniteScroll} from '@ionic/angular'
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  // @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
-  public posts = [];
+  // @Output() num: number;
 
-  constructor() {
-    this.addMore()
-    // console.log(afs.collection('items').valueChanges())
+  // @Output() public posts = [];
+
+  constructor(public viewContainerRef: ViewContainerRef, public fms: FeedManagerService) {
+    fms.generateFeed()
+    // this.posts = fms.outputFeed()
+  }
+
+  createComponent(type) {
+ 
   }
 
   loadData(event) {
     setTimeout(() => {
       console.log('Done');
-      this.addMore()
+      this.fms.generateFeed()
       event.target.complete();
     }, 500);
-  }
-  addMore(){
-    for (let i = 0; i < 10; i++) {
-    this.posts.push(i)      
-    }
   }
   getFriendPosts(){
     // let friends = 

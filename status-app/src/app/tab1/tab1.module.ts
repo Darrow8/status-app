@@ -1,3 +1,4 @@
+import { FeedCellComponent } from './feed-cell/feed-cell.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,8 +14,9 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page,FeedCellComponent],
+  entryComponents: []
 })
 export class Tab1PageModule {}

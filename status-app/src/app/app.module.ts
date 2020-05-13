@@ -1,3 +1,4 @@
+import { FeedCellComponent } from './tab1/feed-cell/feed-cell.component';
 import { LandingComponent } from './landing/landing.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 import { RegisterComponent } from './register/register.component';
@@ -22,11 +23,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FeedDirective } from './directives/feed.directive';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, 
     RegisterComponent,RegisterModalComponent,
-    LandingComponent],
+    LandingComponent,
+    FeedDirective],
   entryComponents: [RegisterModalComponent],
   imports: [
     BrowserModule, IonicModule.forRoot(), 
