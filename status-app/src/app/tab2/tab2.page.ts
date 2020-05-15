@@ -8,15 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab2Page implements OnInit{
 
-  posts = []
+  posts;
   constructor(public ffs:FirebaseFirestoreService) {}
 
   async ngOnInit(){
-    // console.log("here!")
-
-    let tyler = this.ffs.getUser("8LsA2ZC7P8dBUFnVgrPy")
-    let posts = this.ffs.getFriendsPosts(await tyler)
-    // this.posts.push(this.ffs.getFriendPost(tyler))
   }
-
 }
