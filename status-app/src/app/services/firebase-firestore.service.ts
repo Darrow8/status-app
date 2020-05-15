@@ -42,88 +42,50 @@ export class FirebaseFirestoreService {
   }
 
 
-  //*convert to users
+  //*convert to users with promises
   async checkFriend(uid){
     let metaData;
+    let postInterface= [];
     let friendInterface : unknown;
-    let promise = new Promise((res, rej) => {
+    //*getting the post history
+    let promise1 = new Promise((res, rej) => {
       metaData = this.firestore.collection('Users').doc(uid.toString())
+      let postData = metaData.collection('Posts')
+      postData.valueChanges().subscribe(vals =>{
+        vals.forEach(input => {
+          postInterface.push({
+            title: input.title,
+            id: input.id,
+            user: input.user,
+            timebomb: input.timebomb,
+            type: input.type,
+            timestamp: input.timestamp
+          } as complexPostInterface)      
+        })
+        res(vals)
+      })
+    })
+    //*getting the user stats
+    let promise2 = new Promise((res, rej) => {
       metaData.valueChanges().subscribe(vals =>{
-        // console.log(vals)
         friendInterface = {
           name: vals.name,
           uid: vals.uid,
           nickname: vals.nickname,
-          currentPosts: [],
-          status: new Post({} as any),
+          currentPosts: postInterface,
+          status: new Post(postInterface[0] as any),
           timestamp: vals.timestamp,
         } as complexUserObj
-        console.log(friendInterface)
         res(friendInterface as complexUserObj)
       })
     })
-    await promise
+    await Promise.all([promise1,promise2])
     console.log(friendInterface)
     return (friendInterface)
-    // console.log(final)
   }
 
 
   getPostHistory(user: User){
 
   }
-
-
-
-  // test(){
-
-  //   // let where = this.firestore.collection('Users',ref => ref.where('name', '==', 'Darrow')).valueChanges();
-  //   let doc = this.firestore.collection('Users')
-  //       .doc("AaqIe7zkmgSfKMw8NlG4")
-  //       .collection('Posts')
-  //       .doc('WNjR1X1lolMahkAhACvL')
-  //       .valueChanges();
-
-  //   doc.subscribe(vals =>{
-  //     console.log(vals)
-  //   })
-  // }
 }
-
-
-
-
-
-    //       // let promise3 = new Promise((res, rej) => {
-    //       //   let postData = metaData.collection('Posts')
-    //       //   let friendPostData = postData.valueChanges().subscribe(vals =>{
-    //       //     console.log(vals)
-    //       //     return vals
-    //       //   })
-    //       //   res(friendPostData as [object])
-    //       // });
-    //       await Promise.all([promise2]);
-    //       return new User(friendInterface)
-    //       // console.log(friendData)
-    //       // // friendInterface = {
-    //       // //   name: friendData.name,
-    //       // //   uid: friendData.uid,
-    //       // //   nickname: friendData.nickname,
-    //       // //   currentPosts: friendPostData,
-    //       // //   status: new Post({} as any),
-    //       // //   timestamp: friendData.timestamp,
-    //       // // }
-    //       // let newReplacement = new User(friendInterface)
-    //       // console.log("completed " + newReplacement)
-    //       // console.log(newReplacement)
-    //       // return newReplacement
-    //     // }
-    //     // return await routeUsers(uid)})
-    //     console.log(userFriends)
-    //     res(userFriends as [User])
-    //   }).then(val =>{
-    //     console.log(val)
-    //   })
-    //   Promise.all([promise1]);
-    // // console.log("FINAL IS: " + userFriends)
-    // console.log(userFriends)
