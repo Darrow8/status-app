@@ -8,6 +8,7 @@ export interface simplePostInterface{
     id: string;
     user: User;
     type: PostType;
+    timestamp: Date;
 }
 export interface complexPostInterface{
     title: string;
@@ -15,6 +16,7 @@ export interface complexPostInterface{
     user: User;
     timebomb: Date;
     type: PostType;
+    timestamp: Date;
 }
 
 export class Post {
@@ -24,20 +26,24 @@ export class Post {
      * @param id the id of the user
      * @param timebomb the timer that will delete this post
      * @param type the type of post this is
+     * @param timestamp the time when the post was created
      */
     public title: string;
     public id: string;
     public user: User;
     public timebomb: Date;
     public type: PostType;
+    public timestamp: Date;
 
     constructor(post: simplePostInterface);
-    constructor(post: complexPostInterface) {
-        this.title = post.title,
-        this.id = post.id,
-        this.user = post.user,
-        this.timebomb = post.timebomb,
-        this.type = post.type
+    constructor(post: complexPostInterface);
+    constructor(post?: any) {
+        this.title = post && post.title || "",
+        this.id = post && post.id || "",
+        this.user = post && post.user,
+        this.timebomb = post && post.timebomb || "",
+        this.type = post && post.type,
+        this.timestamp = post && post.timestamp
     }
     //* For debugging lots of stuff
     returnInfo(){

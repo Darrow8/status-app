@@ -1,6 +1,6 @@
 import { FirebaseAuthService } from './../services/firebase-auth.service';
 import { RegisterModalComponent } from './../register-modal/register-modal.component';
-import { User } from './../User';
+import { User,initalizationUserObj } from './../User';
 import { Component, OnInit, Input,Output } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
@@ -48,7 +48,19 @@ export class RegisterComponent implements OnInit {
   //* logs the form submitted and converts into user class
   logForm(){
     let val = this.form.value
-    this.user = new User(val["name"],"1",val["number"],val["password"],[],"",[],null)
+    let userInterface: initalizationUserObj = {
+      name: val["name"],
+      nickname: "",
+      uid: "",
+      phoneNum: val["number"],
+      password: val["password"],
+      friends: [],
+      currentPosts: [],
+      status: null,
+      timestamp: new Date().getTime()
+    }
+    this.user = new User(userInterface)
+
     this.user.returnInfo()
     this.fas.sendConf(this.user.phoneNum,this.recaptchaVerifier)
     //*timeout so that they can see the recaptcha & code can be sent

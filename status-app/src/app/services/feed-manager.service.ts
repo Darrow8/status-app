@@ -21,6 +21,7 @@ export class FeedManagerService {
         name: "Kanye West",
         nickname: "ye",
         uid: "1",
+        timestamp: new Date(1589412805)
       }
       let kanye: User = new User(userInterface)
 
@@ -28,7 +29,8 @@ export class FeedManagerService {
         title: "Mark Zuckerberg Invest 1 billion dollars into Kanye West Ideas",
         id: "12345",
         user: kanye,
-        type: PostType.status
+        type: PostType.status,
+        timestamp: new Date(1589412805)
       }
       let post: Post = new Post(postInterface)
       

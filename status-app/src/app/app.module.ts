@@ -41,8 +41,6 @@ import { FeedDirective } from './directives/feed.directive';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    // AngularFirestoreDocument,
-    // AngularFirestore
   ],
   providers: [
     StatusBar,

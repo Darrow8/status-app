@@ -5,21 +5,43 @@ export interface simpleUserObj{
     name: string;
     nickname?: string;
     uid: string; 
+    timestamp: number;
 }
 
 export interface complexUserObj{
     name: string;
     nickname?: string;
     uid: string; 
-    phoneNum: string;
-    password: string;
-    friends: [User];
-    currentPosts: [Post];
-    status: Post;
+    friends?: [String];
+    currentPosts: [Post?];
+    status?: Post;
+    timestamp: number;
 }
 
 
+export interface initalizationUserObj{
+    name: string;
+    nickname: string;
+    uid: string; 
+    phoneNum: string;
+    password: string;
+    friends: [];
+    currentPosts: [];
+    status: Post;
+    timestamp: number;
+}
 
+export interface anyUserObj{
+    name?: string;
+    nickname?: string;
+    uid?: string; 
+    phoneNum?: string;
+    password?: string;
+    friends?: [String];
+    currentPosts?: [Post];
+    status?: Post;
+    timestamp?: number;
+}
 export class User {
     /**
      * @param name name of user
@@ -30,27 +52,33 @@ export class User {
      * @param friends the friends of the user
      * @param currentPosts the current posts the user has open
      * @param status the user's current status
+     * @param timestamp the time when the account was made
      */
 
-    public name: string;
-    public nickname: string;
-    public uid: string; 
+    public name?: string;
+    public nickname?: string;
+    public uid?: string; 
     public phoneNum?: string;
     public password?: string;
-    public friends?: [User];
-    public currentPosts?: [Post];
+    public friends?: [String]; //* gonna be the uids
+    public currentPosts?: [Post?];
     public status?: Post;
+    public timestamp?: number;
 
-    public constructor(user:simpleUserObj);
-    public constructor(user:complexUserObj) {
-        this.name = user.name
-        this.nickname = user.nickname
-        this.uid = user.uid,
-        this.phoneNum = user.phoneNum,
-        this.password = user.password,
-        this.friends = user.friends,
-        this.currentPosts = user.currentPosts,
-        this.status = user.status
+    // public constructor(user?:complexUserObj);
+    // public constructor(user?:simpleUserObj);
+    // public constructor(user?:anyUserObj);
+    // public constructor(user: initalizationUserObj)
+    public constructor(user?:any) {
+        this.name = user && user.name || "";
+        this.nickname = user && user.nickname || "";
+        this.uid = user && user.uid || "";
+        this.phoneNum = user && user.phoneNum || "";
+        this.password = user && user.password || "";
+        this.friends = user && user.friends || [];
+        this.currentPosts = user && user.currentPosts || [];
+        this.status = user && user.status || new Post({} as any)
+        this.timestamp = user && user.timestamp
 
     }
     //* For debugging lots of stuff
@@ -74,4 +102,8 @@ export class User {
 
 }
 
-
+export enum userInterType{
+    simpleUserObj,
+    complexUserObj,
+    initalizationUserObj
+}
