@@ -14,30 +14,30 @@ export class FeedManagerService {
   constructor() { }
 
 
-  generateFeed(){
-    let num = this.currentPosts.length + 10
-    for (let i = Number(this.currentPosts.length); i < num; i++) {
-      let userInterface: simpleUserObj = {
-        name: "Kanye West",
-        nickname: "ye",
-        uid: "1",
-        timestamp: new Date(1589412805)
-      }
-      let kanye: User = new User(userInterface)
+  // generateFeed(){
+  //   let num = this.currentPosts.length + 10
+  //   for (let i = Number(this.currentPosts.length); i < num; i++) {
+  //     let userInterface: simpleUserObj = {
+  //       name: "Kanye West",
+  //       nickname: "ye",
+  //       uid: "1",
+  //       timestamp: new Date(1589412805)
+  //     }
+  //     let kanye: User = new User(userInterface)
 
-      let postInterface: simplePostInterface = {
-        title: "Mark Zuckerberg Invest 1 billion dollars into Kanye West Ideas",
-        id: "12345",
-        user: kanye,
-        type: PostType.status,
-        timestamp: new Date(1589412805)
-      }
-      let post: Post = new Post(postInterface)
+  //     let postInterface: simplePostInterface = {
+  //       title: "Mark Zuckerberg Invest 1 billion dollars into Kanye West Ideas",
+  //       id: "12345",
+  //       user: kanye,
+  //       type: PostType.status,
+  //       timestamp: new Date(1589412805)
+  //     }
+  //     let post: Post = new Post(postInterface)
       
-      this.currentPosts.push(post)
+  //     this.currentPosts.push(post)
 
-    }
-  }
+  //   }
+  // }
 
   updateFeed(i: number){
     return this.currentPosts[i]

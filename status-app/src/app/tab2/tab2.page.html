@@ -13,5 +13,21 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Create"></app-explore-container>
+  <ion-item>
+    <ion-item>
+      <ion-textarea placeholder="Posting on rightNow!"></ion-textarea>
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <script>
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        const userAccessToken = "[access token]";
+        const webPlayback = new Spotify.Player({
+          name: "Spotify Web Playback SDK",
+          getOAuthToken: callback => { callback(token)}
+        });
+        webPlayback.connect();
+      };
+      </script>
+    </ion-item>
+  </ion-item>
+  <!-- <app-explore-container name="Create"></app-explore-container> -->
 </ion-content>

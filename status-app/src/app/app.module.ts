@@ -12,8 +12,6 @@ import { RouteReuseStrategy } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule} from 'angularfire2/firestore'
-// import { AngularFirestore} from '@angular/fire/firestore'
-
 
 import { environment } from '../environments/environment';
 
@@ -26,6 +24,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeedDirective } from './directives/feed.directive';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @Injectable()
 @NgModule({
   declarations: [AppComponent, LoginComponent, 
@@ -34,13 +34,16 @@ import { FeedDirective } from './directives/feed.directive';
     FeedDirective],
   entryComponents: [RegisterModalComponent],
   imports: [
-    BrowserModule, IonicModule.forRoot(), 
+    BrowserModule,
+    HttpClientModule,
+     IonicModule.forRoot(), 
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+
   ],
   providers: [
     StatusBar,
