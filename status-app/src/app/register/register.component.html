@@ -6,27 +6,32 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-button [routerLink]="['']">Back</ion-button>
-
-  <form [formGroup]="form" (ngSubmit)="logForm()">
-  <ion-item>
-    <ion-label>Name</ion-label>
-    <ion-input type="text" formControlName="name"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Phone Number</ion-label>
-    <ion-input type="number"formControlName="number"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-textarea formControlName="password"></ion-textarea>
-  </ion-item>
-  <ion-button ion-button type="submit" (tap)="createUser()">Submit</ion-button>
-  </form>
-
-  <div id="recaptcha">
-    
-  </div>
+  <ion-card>
+    <ion-card-header>
+      <h1>Register</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="form" (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Phone Number</ion-label>
+          <ion-input type="number"formControlName="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input formControlName="password"></ion-input>
+        </ion-item>
+        <ion-button class="submit-button"type="submit" (tap)="createUser()">Submit</ion-button>
+      </form>
+      <div id="recaptcha">
+        
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="none" class="back-button" [routerLink]="['']">Back</ion-button>
 </ion-content>
 
 
