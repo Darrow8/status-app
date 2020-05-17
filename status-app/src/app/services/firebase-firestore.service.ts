@@ -27,9 +27,9 @@ export class FirebaseFirestoreService {
           if(i < friendsPost.length){
             cutFriendsPosts.push(friendsPost[i] as User)
           }
-          // else{
-          //   cutFriendsPosts.push(friendsPost[i % friendsPost.length])
-          // }
+          else{
+            cutFriendsPosts.push(friendsPost[i % friendsPost.length])
+          }
           console.log(cutFriendsPosts)
         }
       return(this.getFeed(cutFriendsPosts as [User]))

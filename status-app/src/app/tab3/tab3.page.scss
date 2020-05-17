@@ -1,0 +1,53 @@
+.img{
+    width: 60%;
+    height: auto;
+    // border-radius: 50% !important;
+
+    // -webkit-border-radius: 50%;
+    // border-radius: 50%;
+}
+//*just the image and the time of joining
+.img-div{
+    float: left;
+    width: 40%;
+    position: relative;
+    // background-color: yellow;
+}
+//*shows the streak log
+.streak-log{
+    top: 10%;
+    float: left;
+    width: 30%;
+    position: relative;
+    text-align: center;
+    // background-color: green;
+    // z-index: 1;
+}
+//*holds nickname
+.nickname-log{
+    float: left;
+    background-color: grey;
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    position: relative;
+
+}
+//*shows the total number of posts
+.posts-log{
+    top: 10%;
+    float: left;
+    width: 30%;
+    position: relative;
+    text-align: center;
+    // background-color: red;
+    // z-index: 1;
+}
+
+//*complete profile
+.total-profile{
+    overflow: hidden;
+    height: 40%;
+    width: auto;
+}

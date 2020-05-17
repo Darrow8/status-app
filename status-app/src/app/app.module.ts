@@ -1,7 +1,10 @@
+import { SpotifyComponent } from './spotify/spotify.component';
 import { FeedCellComponent } from './tab1/feed-cell/feed-cell.component';
 import { LandingComponent } from './landing/landing.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 import { RegisterComponent } from './register/register.component';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 import { Post } from './Post';
 import { User } from './User';
 import { LoginComponent } from './login/login.component';
@@ -25,14 +28,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeedDirective } from './directives/feed.directive';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SafePipe } from './safe.pipe';
 
 @Injectable()
 @NgModule({
   declarations: [AppComponent, LoginComponent, 
     RegisterComponent,RegisterModalComponent,
     LandingComponent,
-    FeedDirective],
-  entryComponents: [RegisterModalComponent],
+    FeedDirective,
+    SpotifyComponent,
+    SafePipe
+  ],
+    
+  entryComponents: [RegisterModalComponent,SpotifyComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -48,8 +56,11 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    SafePipe,
+    InAppBrowser
   ],
+  exports:[SafePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

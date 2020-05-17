@@ -1,0 +1,15 @@
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+.scroller {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  // IE 10+
+    scrollbar-width: none;  // Firefox
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none; // Safari and Chrome
+    }
+}

@@ -36,14 +36,12 @@ export class Tab1Page implements OnInit {
 
         this.posts.push(data)
       })
-      console.log(this.posts)
       event.target.complete();
     }, 500);
   }
 
   async ngOnInit(){
     this.posts = await this.ffs.getFriendPosts(this.currentLimit)
-    console.log(this.posts)
 
   }
 

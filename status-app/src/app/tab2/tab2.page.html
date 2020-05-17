@@ -7,27 +7,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Create</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <ion-item>
-    <ion-item>
-      <ion-textarea placeholder="Posting on rightNow!"></ion-textarea>
-      <script src="https://sdk.scdn.co/spotify-player.js"></script>
-      <script>
-      window.onSpotifyWebPlaybackSDKReady = () => {
-        const userAccessToken = "[access token]";
-        const webPlayback = new Spotify.Player({
-          name: "Spotify Web Playback SDK",
-          getOAuthToken: callback => { callback(token)}
-        });
-        webPlayback.connect();
-      };
-      </script>
-    </ion-item>
-  </ion-item>
+  <!-- <ion-item> -->
+    <!-- <ion-item> -->
+      <ion-card>
+        <ion-card-content>
+          <ion-label>Set your status</ion-label>
+          <ion-textarea placeholder="Posting on rightNow!"></ion-textarea>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-label>Add Your Voice</ion-label>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-label>Add Spotify Song</ion-label>
+          <ion-button>Connect Spotify</ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-button>Done</ion-button>
+    
+    <!-- </ion-item> -->
+  <!-- </ion-item> -->
+  <!-- <ion-button [href]=this.url>Authenticate</ion-button> -->
   <!-- <app-explore-container name="Create"></app-explore-container> -->
 </ion-content>

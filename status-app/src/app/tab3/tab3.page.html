@@ -7,11 +7,50 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Profile</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <app-explore-container name="Search"></app-explore-container>
-</ion-content>
+  <ion-card color="primary">
+    <ion-card-header>
+      <ion-label>Your Profile</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+        <div class="total-profile">
+          <div class="img-div">
+              <ion-avatar class="img">
+                <ion-img src="https://i.scdn.co/image/ab6775700000ee85868f76c280eb228bf1213208">
+                </ion-img>
+              </ion-avatar>
+              <b>Darrow</b>
+              <p>Joined in May, 2020</p>
+          </div> 
+          <div class="nickname-log">
+            <h1>Darrow-1</h1>
+          </div>
+          <div class="streak-log">
+            <h1>5</h1>
+            <p>Day Streak</p>
+          </div>
+          <div class="posts-log">
+            <h1>10</h1>
+            <p>Total Posts</p>
+          </div>
+        </div>
+  </ion-card-content>
+  </ion-card>
+  <!-- <ion-card color="medium">
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-infinite-scroll>
+        <ion-infinite-scroll-content>
+          <ion-card color="primary">
+            <ion-label>test</ion-label>
+          </ion-card>
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-card-content>
+  </ion-card> -->
